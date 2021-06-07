@@ -1,0 +1,72 @@
+* {
+	background-color: rgba(255,0,0,0);
+}
+
+.registerAccount {
+	background-color: rgba(0,255,255,0);
+	
+	display: inline-block;
+
+	min-width: 400px;
+	margin: 10px;
+	padding: 10px;
+
+}
+
+.registerAccountFild {
+	padding: 10px;
+	text-align: center;
+	font-family: roboto;
+}
+
+.registerAccountFild > label {
+	display: block;
+}
+
+.registerAccountFild > select {
+	width: 80%;
+	padding: 8px;
+	border-radius: 10px;
+	font-weight: bold;
+}
+
+
+.registerAccountFild > input[type=submit] {
+	color: #000;
+	font-weight: bold;
+
+	width: 100%;
+	border-radius: 20px;
+	transition: 1s;
+}
+
+.registerAccountFild > input[type=submit]:hover {
+	background-color: #32cd32;
+	color: #fff;
+}
+
+[name=submit_register] {
+	color: #000;
+	font-weight: bold;
+
+	width: 100%;
+	border-radius: 20px;
+	transition: 1s;
+}
+
+[name=submit_register]:hover {
+	background-color: #32cd32;
+	color: #fff;
+}
+
+input {
+	color: #222;
+	width: 80%;
+	border-radius: 10px;
+	/*font-weight: bold;*/
+}
+
+label {
+	font-family: roboto;
+	color: #222;
+}
