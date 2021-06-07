@@ -3,7 +3,7 @@
 	document.querySelector('[name=login_acao]').addEventListener('click',()=>{
 		let username = document.querySelector('[name=login_user]');
 		let password = document.querySelector('[name=login_password]');
-		fetch(`http://localhost/dashboard/easy-control/api/validUser.api.php?USERNAME=${username.value}&PASSWORD=${password.value}`)
+		fetch(`../api/validUser.api.php?USERNAME=${username.value}&PASSWORD=${password.value}`)
 		.then(response => response.json())
 		.then((resposta) =>{
 			console.log(resposta["username"]);
