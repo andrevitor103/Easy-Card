@@ -21,7 +21,7 @@
 
 <header>
 	<div class="header">
-		<a href="mainPageNow.php"><div class="logo"></div></a>
+		<a href="MainPageNow.php"><div class="logo"></div></a>
 		<div class="options">
 			<nav class="navBar">
 					<div class="navBar__main">
