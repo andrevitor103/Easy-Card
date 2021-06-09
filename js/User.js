@@ -8,7 +8,7 @@
 		.then((resposta) =>{
 			console.log(resposta["username"]);
 			if(resposta["username"] != undefined){
-				window.location.href = "mainPageNow.php";
+				window.location.href = "MainPageNow.php";
 			}else{
 				alert("Usuário ou senha inválido");
 				document.querySelectorAll('.login_access_single > input').forEach((item) =>{
