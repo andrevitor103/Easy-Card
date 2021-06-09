@@ -5,7 +5,7 @@
 	<link rel="stylesheet" type="text/css" href="css/mainPage.css">
 	<link rel="stylesheet" type="text/css" href="css/easy-control-registers.css">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-
+	<link rel="stylesheet" type="text/css" href="./fontawesome/css/all.min.css">
 
 	<link href="./c3-0.7.20/c3.css" rel="stylesheet">
 
@@ -13,7 +13,7 @@
 	<script src="./c3-0.7.20/docs/js/d3-5.8.2.min.js" charset="utf-8"></script>
 	<script src="./c3-0.7.20/docs/js/c3.min.js"></script>
 
-	<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+	<!-- <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script> -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 	<title>Main Page</title>
