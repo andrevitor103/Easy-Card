@@ -28,7 +28,7 @@
 						<span class="navBar__main__btn">Despesas</span>
 						<div class="navBar__main__itens">
 							<a href="mainRegisterAccount.php">Adicionar Despesa</a>
-							<a href="pageDespesasDetalhes.php">Despesas</a>
+							<a href="PageDespesasDetalhes.php">Despesas</a>
 						</div>
 					</div>
 
