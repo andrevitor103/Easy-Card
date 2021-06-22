@@ -12,7 +12,7 @@
 
 	$despesa = new Despesa($pdo);
 	
-	// print_r($despesa->selectDt(null, $_SESSION['id_user']));
+	print_r($despesa->selectDt(null, $_SESSION['id_user']));
 
 	if(isset($_GET['id'])){
 		$despesa = $despesa->selectDt($_GET['id'], $_SESSION['id_user']);
