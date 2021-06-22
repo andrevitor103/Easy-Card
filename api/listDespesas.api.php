@@ -22,7 +22,7 @@
 		$despesa = $despesa->selectDt(null, $_SESSION['id_user']);
 	}
 
-	$despesa = json_encode($despesa);
-	echo "ID" . $_SESSION['id_user'];
-	echo $despesa;
+	$despesas = json_encode($despesa);
+
+	echo $despesas;
 
