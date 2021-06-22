@@ -21,8 +21,8 @@
 		$despesa = $despesa->selectDt(null, $_SESSION['id_user']);
 	
 	}
-	/*echo json_encode($despesa);
-	$despesas = json_encode($despesa);*/
+	
+	/*$despesa = json_encode($despesa);*/
 
-	echo $despesas;
+	echo $despesa;
 
