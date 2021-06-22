@@ -11,8 +11,7 @@
 	// echo $_SESSION['id_user'];
 
 	$despesa = new Despesa($pdo);
-	
-	print_r($despesa->selectDt(null, $_SESSION['id_user']));
+
 
 	if(isset($_GET['id'])){
 		$despesa = $despesa->selectDt($_GET['id'], $_SESSION['id_user']);
@@ -20,6 +19,7 @@
 		$despesa = $despesa->selectDtFilter($_GET['filters'], $_SESSION['id_user']);
 	}else{
 		$despesa = $despesa->selectDt(null, $_SESSION['id_user']);
+		print_r($despesa->selectDt(null, $_SESSION['id_user']));
 	}
 
 	$despesas = json_encode($despesa);
