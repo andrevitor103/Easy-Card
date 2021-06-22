@@ -23,5 +23,6 @@
 	}
 
 	$despesa = json_encode($despesa);
+	echo "ID" . $_SESSION['id_user'];
 	echo $despesa;
 
