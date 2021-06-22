@@ -19,9 +19,9 @@
 		$despesa = $despesa->selectDtFilter($_GET['filters'], $_SESSION['id_user']);
 	}else{
 		$despesa = $despesa->selectDt(null, $_SESSION['id_user']);
-		print_r($despesa);
+	
 	}
-
+	echo $despesa;
 	$despesas = json_encode($despesa);
 
 	echo $despesas;
