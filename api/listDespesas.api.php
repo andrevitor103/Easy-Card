@@ -22,7 +22,7 @@
 	
 	}
 	
-	/*$despesa = json_encode($despesa);*/
+	$despesa = json_encode($despesa);
 
 	echo $despesa;
 
