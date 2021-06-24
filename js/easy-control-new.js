@@ -101,7 +101,7 @@ function filterTable(){
 		<td id="dtconta" idConta="${res['ID']}" data-toggle="modal" data-target="#exampleModal">${res['CONTA'] ?? 0}</td>
 		<td>${res['FORNECEDOR']}</td>
 		<td>${res['VALOR PARCELA FINAL']}</td>
-		<td>${res['Nª PARCELA']}/${res['TOTAL PARCELA']}</td>
+		<td>${res['N PARCELA']}/${res['TOTAL PARCELA']}</td>
 		<td>${res['DT VENCIMENTO']}</td>
 		<td>${res['JUROS'] ?? "0.00"}</td>
 		<td>${res['DESCONTO'] ?? "0.00"}</td>
@@ -117,7 +117,7 @@ function filterTable(){
 		<td id="dtconta" idConta="${res['ID']}" data-toggle="modal" data-target="#exampleModal">${res['CONTA'] ?? 0}</td>
 		<td>${res['FORNECEDOR']}</td>
 		<td>${res['VALOR PARCELA FINAL']}</td>
-		<td>${res['Nª PARCELA']}/${res['TOTAL PARCELA']}</td>
+		<td>${res['N PARCELA']}/${res['TOTAL PARCELA']}</td>
 		<td>${res['DT VENCIMENTO']}</td>
 		<td>${res['JUROS'] ?? "0.00"}</td>
 		<td>${res['DESCONTO'] ?? "0.00"}</td>
@@ -257,7 +257,7 @@ $.ajax({
 		document.querySelector('[name=dt_conta]').innerHTML = result["CONTA"];
 		document.querySelector('[name=dt_fornecedor]').innerHTML = result["FORNECEDOR"];
 		document.querySelector('[name=dt_valorParcela]').innerHTML = result["VALOR PARCELA"];
-		document.querySelector('[name=dt_numeroParcela]').innerHTML = `${result["Nª PARCELA"]} / ${result["TOTAL PARCELA"]}`;
+		document.querySelector('[name=dt_numeroParcela]').innerHTML = `${result["N PARCELA"]} / ${result["TOTAL PARCELA"]}`;
 		document.querySelector('[name=dt_dataVencimento]').innerHTML = result["DT VENCIMENTO"];
 		document.querySelector('[name=dt_juros]').innerHTML = result["JUROS"] ?? "0.00";
 		document.querySelector('[name=dt_desconto]').innerHTML = result["DESCONTO"] ?? "0.00";
@@ -271,7 +271,7 @@ $.ajax({
 		document.querySelector('[name=dt_conta_edit]').value = result["CONTA"];
 		document.querySelector('[name=dt_fornecedor_edit]').value = result["FORNECEDOR"];
 		document.querySelector('[name=dt_valorParcela_edit]').value = result["VALOR PARCELA"];
-		document.querySelector('[name=dt_numeroParcela_edit]').innerHTML = `${result["Nª PARCELA"]} / ${result["TOTAL PARCELA"]}`;
+		document.querySelector('[name=dt_numeroParcela_edit]').innerHTML = `${result["N PARCELA"]} / ${result["TOTAL PARCELA"]}`;
 		document.querySelector('[name=dt_dataVencimento_edit]').value = result["DT VENCIMENTO"];
 		document.querySelector('[name=dt_juros_edit]').value = result["JUROS"] ?? "0.00";
 		document.querySelector('[name=dt_desconto_edit]').value = result["DESCONTO"] ?? "0.00";
