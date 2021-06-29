@@ -14,7 +14,7 @@
 	</div>
 
 	<div class="registerAccount">
-		<form method="GET" action="api/RegisterAccount.api.php">
+		<form method="GET" name="formRegister">
 		<div class="registerAccountFild">
 			 <label>TIPO PAGAMENTO</label>
 			 <select name="conta_tipo_pagamento">
@@ -59,6 +59,7 @@
 		<div class="registerAccountFild">
 			<input type="submit" name="submit_register" value="Cadastrar">
 		</div>
+
 		</form>
 	</div>
 	<!-- <footer>

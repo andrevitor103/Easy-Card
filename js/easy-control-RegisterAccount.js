@@ -9,10 +9,6 @@
 		loadSelect('filterFormaPagamento');
 	}
 
-	function msgAlert(message = null){
-		alert(message);
-	}
-
 	function clearSelect(name = null){
 		document.querySelectorAll(`[name=${name}] > option`).forEach(res => res.remove());
 	}
@@ -106,12 +102,33 @@
 		}
 	}
 
+
+
+/*
+
+* Registros
+
+*/
+
 	if(document.querySelector('[name=categoria_acao]')){
 		let categoriaDescricao = document.querySelector('[name=categoria_descricao]');
 		document.querySelector('[name=categoria_acao]').addEventListener('click',(element)=>{
 			element.preventDefault();
+			
+			document.querySelector('[name=categoria_acao]').disabled = true;
+			this.alterStyleBtn('categoria_acao', 'red');
+
 			fetch(`api/addCategory.php?categoria_descricao=${categoriaDescricao.value}`)
 			.then(()=> onloadData('conta_categoria'))
+			.then(() => {
+				this.msgBox('Cadastrado com sucesso');
+				document.querySelector('[name=categoria_acao]').disabled = false;
+				this.alterStyleBtn('categoria_acao', null);
+			})
+			.catch(() => {
+				document.querySelector('[name=categoria_acao]').disabled = false;
+				this.alterStyleBtn('categoria_acao', null);
+			});
 		});
 	}
 
@@ -123,9 +140,20 @@
 			let documento = document.querySelector('[name=documento_fornecedor]');
 			let razaoSocial = document.querySelector('[name=razao_social]');
 
+			document.querySelector('[name=fornecedor_acao]').disabled = true;
+			this.alterStyleBtn('fornecedor_acao', 'red');
+
 			fetch(`api/RegisterFornecedor.api.php?documento_fornecedor=${documento.value}&razao_social=${razaoSocial.value}`)
 			.then(() => onloadData('conta_fornecedor'))
-			.then(()=> msgAlert("Cadastrado com sucesso"));
+			.then(() => {
+				this.msgBox('Cadastrado com sucesso');
+				document.querySelector('[name=fornecedor_acao]').disabled = false;
+				this.alterStyleBtn('fornecedor_acao', null);
+			})
+			.catch(() => {
+				document.querySelector('[name=fornecedor_acao]').disabled = false;
+				this.alterStyleBtn('fornecedor_acao', null);
+			});
 		});
 	}
 
@@ -137,19 +165,33 @@
 			let limite = document.querySelector('[name=cartao_limite]');
 			let vencimento = document.querySelector('[name=data_vencimento]');
 			console.log(vencimento.value);
+
+			document.querySelector('[name=cartao_acao]').disabled = true;
+			this.alterStyleBtn('cartao_acao', 'red');
 			
 			fetch(`api/addCartao.php?cartao_descricao=${descricao.value}&cartao_limite=${limite.value}&data_vencimento=${vencimento.value}`)
 			.then(() => onloadData('conta_tipo_pagamento'))
-			.then(()=> msgAlert("Cadastrado com sucesso"))
-			.catch(error => console.log(error));
+			.then(() => {
+				this.msgBox('Cadastrado com sucesso');
+				document.querySelector('[name=cartao_acao]').disabled = false;
+				this.alterStyleBtn('cartao_acao', null);
+			})
+			.catch(() => {
+				document.querySelector('[name=cartao_acao]').disabled = false;
+				this.alterStyleBtn('cartao_acao', null);
+			});
 		});
 	}
 
-	if(document.querySelector('[name=submit_register]')){
+	if(document.querySelector('[name=formRegister]')){
+		document.querySelector('[name=formRegister]').addEventListener('submit', (element) => {
+			element.preventDefault();
+		})
+	}
+	if(document.querySelector('[name=formRegister]')){
 		
-		document.querySelector('[name=submit_register]').addEventListener('click',(element)=>element.preventDefault());
-
-		document.querySelector('[name=submit_register]').addEventListener('dblclick',(element)=>{
+		document.querySelector('[name=formRegister]').addEventListener('submit',(element)=>{
+			
 			element.preventDefault();
 			let tipoPagamento = document.querySelector('[name=conta_tipo_pagamento]');
 			let contaFornecedor = document.querySelector('[name=conta_fornecedor]');
@@ -160,29 +202,49 @@
 			let contaTotalParcela = document.querySelector('[name=conta_total_parcela]');
 			let contaData = document.querySelector('[name=conta_data]');
 
+			document.querySelector('[name=submit_register]').disabled = true;
+			this.alterStyleBtn('submit_register', 'red');
+
 			fetch(`
 				api/RegisterAccount.api.php?conta_tipo_pagamento=${tipoPagamento.value}&conta_fornecedor=${contaFornecedor.value}
 				&conta_valor=${contaValor.value}&conta_desconto=${contaDesconto.value}&conta_juros=${contaJuros.value}&conta_categoria=${contaCategoria.value}
 				&conta_total_parcela=${contaTotalParcela.value}&conta_data=${contaData.value}`)
 			.then(response => response.json())
-			.then((result)=>{
-				console.log(result);
+			.then((result) => {
 				if(result == "ok"){
-			 	document.querySelector('[name=conta_tipo_pagamento]').value = "";
-			 	document.querySelector('[name=conta_fornecedor]').value = "";
-			 	document.querySelector('[name=conta_valor]').value = "";
-				document.querySelector('[name=conta_desconto]').value = "";
-				document.querySelector('[name=conta_juros]').value = "";
-				document.querySelector('[name=conta_categoria]').value = "";
-				document.querySelector('[name=conta_total_parcela]').value = "";
-				document.querySelector('[name=conta_data]').value = "";
-				alert("Cadastrado com sucesso");
-			}else{
-				alert("Erro ao cadastrar");
-			}
+					this.msgBox('Cadastrado com sucesso');
+					document.querySelector('[name=submit_register]').disabled = false;
+					this.alterStyleBtn('submit_register', null);
+					document.querySelector('[name=conta_tipo_pagamento]').value = "";
+				 	document.querySelector('[name=conta_fornecedor]').value = "";
+				 	document.querySelector('[name=conta_valor]').value = "";
+					document.querySelector('[name=conta_desconto]').value = "";
+					document.querySelector('[name=conta_juros]').value = "";
+					document.querySelector('[name=conta_categoria]').value = "";
+					document.querySelector('[name=conta_total_parcela]').value = "";
+					document.querySelector('[name=conta_data]').value = "";
+				}else{
+					alert("Erro ao cadastrar, favor verificar os dados");
+					document.querySelector('[name=submit_register]').disabled = false;
+					this.alterStyleBtn('submit_register', null);
+				}
+
+				
+
 			})
-			.catch(error => console.log(error));
+			.catch(() => {
+				document.querySelector('[name=submit_register]').disabled = false;
+				this.alterStyleBtn('submit_register', null);
+			});
 		});
 	}
 
+
+	function msgBox(msg){
+		alert(`${msg}`);
+	}
+
+	function alterStyleBtn(name, color){
+		document.querySelector(`[name=${name}]`).style.backgroundColor = color;
+	}
 
