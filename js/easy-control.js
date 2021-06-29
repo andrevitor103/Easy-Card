@@ -51,19 +51,23 @@ function getLista(){
 	return lista;
 }
 
-document.querySelector('[name=filter_search]').addEventListener("click", ()=>{
-	var fildsFilter = [];
-	var fildsValues = [];
-	var listaFilds = ["FORNECEDOR","CONTA","DT VENCIMENTO","DT PAGAMENTO","STATUS"];
-	for(var i = 0; i < listaFilds.length; i++){
-		console.log(listaFilds[i]);
-		if(document.querySelector(`[name="${listaFilds[i]}"]`).value != ""){
-			fildsFilter.push(listaFilds[i]);
-			fildsValues.push(document.querySelector(`[name="${listaFilds[i]}"]`).value);
+if(document.querySelector('[name=filter_search]'))
+{
+	document.querySelector('[name=filter_search]').addEventListener("click", ()=>{
+		var fildsFilter = [];
+		var fildsValues = [];
+		var listaFilds = ["FORNECEDOR","CONTA","DT VENCIMENTO","DT PAGAMENTO","STATUS"];
+		for(var i = 0; i < listaFilds.length; i++){
+			console.log(listaFilds[i]);
+			if(document.querySelector(`[name="${listaFilds[i]}"]`).value != ""){
+				fildsFilter.push(listaFilds[i]);
+				fildsValues.push(document.querySelector(`[name="${listaFilds[i]}"]`).value);
+			}
 		}
-	}
-	filter(fildsFilter, fildsValues);
-});
+		filter(fildsFilter, fildsValues);
+	});
+
+}
 
 function dtDespensas(){
 	document.querySelectorAll('#dtconta').forEach((singleElement)=>{
