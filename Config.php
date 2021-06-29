@@ -1,5 +1,4 @@
 <?php
-
 	$dados = parse_ini_file("env.in");
 
 	try {
@@ -7,5 +6,6 @@
 	}catch(PDOException $e){
 		die(`Erro: {$e->getMessage()}`);
 	}
+
 
 
