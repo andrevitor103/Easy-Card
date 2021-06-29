@@ -229,6 +229,8 @@
 					this.alterStyleBtn('submit_register', null);
 				}
 
+				
+
 			})
 			.catch(() => {
 				document.querySelector('[name=submit_register]').disabled = false;
